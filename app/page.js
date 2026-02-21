@@ -115,20 +115,6 @@ const tableStyle = {
 
 const floatingButton = {
   position: "fixed",
-  bottom: "30px",
-  right: "30px",
-  width: "60px",
-  height: "60px",
-  borderRadius: "50%",
-  fontSize: "28px",
-  background: "#22c55e",
-  color: "white",
-  border: "none",
-  boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
-  cursor: "pointer"
-}
-const floatingButton = {
-  position: "fixed",
   bottom: "90px",   // เดิม 30px → เปลี่ยนเป็น 90px
   right: "20px",
   width: "60px",
