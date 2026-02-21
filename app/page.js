@@ -19,7 +19,13 @@ export default function Page() {
     }
     setOrders([...orders, newOrder])
   }
-
+  const groupedOrders = orders.reduce((acc, order) => {
+  if (!acc[order.table]) {
+    acc[order.table] = []
+  }
+  acc[order.table].push(order)
+  return acc
+}, {})
   return (
     <main style={mainStyle}>
       <h1>📊 Restaurant Dashboard</h1>
