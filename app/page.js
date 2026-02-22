@@ -33,7 +33,10 @@ export default function Page() {
       <h1>📊 Restaurant Dashboard</h1>
 
       <div style={gridStyle}>
-        <Card title="💰 ยอดขายวันนี้" value="฿12,500" />
+        <Card
+  title="💰 ยอดขายวันนี้"
+  value={`฿${orders.reduce((sum, o) => sum + o.price, 0)}`}
+/>
         <Card title="🧾 จำนวนออเดอร์" value={orders.length} />
         <Card title="🍜 เมนูทั้งหมด" value="18 เมนู" />
       </div>
