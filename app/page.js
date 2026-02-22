@@ -49,23 +49,25 @@ export default function Page() {
             </tr>
           </thead>
           <tbody>
-            {Object.entries(groupedOrders).map(([table, tableOrders]) => (
-            <div key={table} style={tableCard}>
-            <h3 style={{ marginBottom: "10px" }}>โต๊ะ {table}</h3>
+            <div style={tableWrapper}>
+  {Object.entries(groupedOrders).map(([table, tableOrders]) => (
+    <div key={table} style={tableCard}>
+      <h3 style={{ marginBottom: "10px" }}>โต๊ะ {table}</h3>
 
-            {tableOrders.map((order, index) => (
-            <div key={index} style={rowStyle}>
-            <div>{order.menu}</div>
-            <div>฿{order.price}</div>
-           <div style={{
+      {tableOrders.map((order, index) => (
+        <div key={index} style={rowStyle}>
+          <div>{order.menu}</div>
+          <div>฿{order.price}</div>
+          <div style={{
             color: order.status === "เสิร์ฟแล้ว" ? "#22c55e" : "#facc15"
-           }}>
-           {order.status}
+          }}>
+            {order.status}
           </div>
         </div>
       ))}
-  </div>
- ))}
+    </div>
+  ))}
+</div>
 
       <button style={floatingButton} onClick={addOrder}>
         +
