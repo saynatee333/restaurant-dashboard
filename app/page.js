@@ -80,7 +80,7 @@ export default function Page() {
     </div>
   )
 })}
-
+</div>
       <button style={floatingButton} onClick={addOrder}>
         +
       </button>
