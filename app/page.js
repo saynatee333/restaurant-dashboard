@@ -47,7 +47,6 @@ export default function Page() {
               <th>สถานะ</th>
             </tr>
           </thead>
-          <tbody>
             <div style={tableWrapper}>
   {Object.entries(groupedOrders).map(([table, tableOrders]) => (
     <div key={table} style={tableCard}>
