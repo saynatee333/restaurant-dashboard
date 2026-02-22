@@ -49,19 +49,23 @@ export default function Page() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order, index) => (
-              <tr key={index}>
-                <td>{order.table}</td>
-                <td>{order.menu}</td>
-                <td>฿{order.price}</td>
-                <td style={{ color: order.status === "เสิร์ฟแล้ว" ? "#4ade80" : "#facc15" }}>
-                  {order.status}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            {Object.entries(groupedOrders).map(([table, tableOrders]) => (
+            <div key={table} style={tableCard}>
+            <h3 style={{ marginBottom: "10px" }}>โต๊ะ {table}</h3>
+
+            {tableOrders.map((order, index) => (
+            <div key={index} style={rowStyle}>
+            <div>{order.menu}</div>
+            <div>฿{order.price}</div>
+           <div style={{
+            color: order.status === "เสิร์ฟแล้ว" ? "#22c55e" : "#facc15"
+           }}>
+           {order.status}
+          </div>
+        </div>
+      ))}
+  </div>
+ ))}
 
       <button style={floatingButton} onClick={addOrder}>
         +
@@ -133,4 +137,17 @@ const floatingButton = {
   boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
   cursor: "pointer",
   zIndex: 9999
+}
+const tableCard = {
+  marginBottom: "20px",
+  padding: "15px",
+  borderRadius: "12px",
+  background: "rgba(255,255,255,0.05)"
+}
+
+const rowStyle = {
+  display: "grid",
+  gridTemplateColumns: "2fr 1fr 1fr",
+  padding: "8px 0",
+  borderBottom: "1px solid rgba(255,255,255,0.1)"
 }
