@@ -39,14 +39,6 @@ export default function Page() {
       <h2 style={{ marginTop: "40px" }}>🕒 ออเดอร์ล่าสุด</h2>
 
       <div style={tableWrapper}>
-        <table style={tableStyle}>
-            <tr>
-              <th>โต๊ะ</th>
-              <th>เมนู</th>
-              <th>ราคา</th>
-              <th>สถานะ</th>
-            </tr>
-          </thead>
             <div style={tableWrapper}>
   {Object.entries(groupedOrders).map(([table, tableOrders]) => (
     <div key={table} style={tableCard}>
