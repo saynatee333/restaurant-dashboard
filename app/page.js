@@ -158,3 +158,11 @@ const floatingButton = {
   cursor: "pointer",
   zIndex: 9999
 }
+const totalStyle = {
+  marginTop: "10px",
+  paddingTop: "10px",
+  borderTop: "1px solid rgba(255,255,255,0.2)",
+  fontWeight: "bold",
+  textAlign: "right",
+  color: "#22c55e"
+}
