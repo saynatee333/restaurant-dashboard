@@ -19,13 +19,15 @@ export default function Page() {
     }
     setOrders([...orders, newOrder])
   }
+
   const groupedOrders = orders.reduce((acc, order) => {
-  if (!acc[order.table]) {
-    acc[order.table] = []
-  }
-  acc[order.table].push(order)
-  return acc
-}, {})
+    if (!acc[order.table]) {
+      acc[order.table] = []
+    }
+    acc[order.table].push(order)
+    return acc
+  }, {})
+
   return (
     <main style={mainStyle}>
       <h1>📊 Restaurant Dashboard</h1>
@@ -39,25 +41,29 @@ export default function Page() {
       <h2 style={{ marginTop: "40px" }}>🕒 ออเดอร์ล่าสุด</h2>
 
       <div style={tableWrapper}>
-            <div style={tableWrapper}>
-  {Object.entries(groupedOrders).map(([table, tableOrders]) => (
-    <div key={table} style={tableCard}>
-      <h3 style={{ marginBottom: "10px" }}>โต๊ะ {table}</h3>
+        {Object.entries(groupedOrders).map(([table, tableOrders]) => (
+          <div key={table} style={tableCard}>
+            <h3 style={{ marginBottom: "10px" }}>โต๊ะ {table}</h3>
 
-      {tableOrders.map((order, index) => (
-        <div key={index} style={rowStyle}>
-          <div>{order.menu}</div>
-          <div>฿{order.price}</div>
-          <div style={{
-            color: order.status === "เสิร์ฟแล้ว" ? "#22c55e" : "#facc15"
-          }}>
-            {order.status}
+            {tableOrders.map((order, index) => (
+              <div key={index} style={rowStyle}>
+                <div>{order.menu}</div>
+                <div>฿{order.price}</div>
+                <div
+                  style={{
+                    color:
+                      order.status === "เสิร์ฟแล้ว"
+                        ? "#22c55e"
+                        : "#facc15"
+                  }}
+                >
+                  {order.status}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
-  ))}
-</div>
+        ))}
+      </div>
 
       <button style={floatingButton} onClick={addOrder}>
         +
@@ -110,26 +116,6 @@ const tableWrapper = {
   border: "1px solid rgba(255,255,255,0.1)"
 }
 
-const tableStyle = {
-  width: "100%",
-  borderCollapse: "collapse"
-}
-
-const floatingButton = {
-  position: "fixed",
-  bottom: "90px",   // เดิม 30px → เปลี่ยนเป็น 90px
-  right: "20px",
-  width: "60px",
-  height: "60px",
-  borderRadius: "50%",
-  fontSize: "28px",
-  background: "#22c55e",
-  color: "white",
-  border: "none",
-  boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
-  cursor: "pointer",
-  zIndex: 9999
-}
 const tableCard = {
   marginBottom: "20px",
   padding: "15px",
@@ -142,4 +128,20 @@ const rowStyle = {
   gridTemplateColumns: "2fr 1fr 1fr",
   padding: "8px 0",
   borderBottom: "1px solid rgba(255,255,255,0.1)"
+}
+
+const floatingButton = {
+  position: "fixed",
+  bottom: "90px",
+  right: "20px",
+  width: "60px",
+  height: "60px",
+  borderRadius: "50%",
+  fontSize: "28px",
+  background: "#22c55e",
+  color: "white",
+  border: "none",
+  boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
+  cursor: "pointer",
+  zIndex: 9999
 }
