@@ -41,29 +41,42 @@ export default function Page() {
       <h2 style={{ marginTop: "40px" }}>🕒 ออเดอร์ล่าสุด</h2>
 
       <div style={tableWrapper}>
-        {Object.entries(groupedOrders).map(([table, tableOrders]) => (
-          <div key={table} style={tableCard}>
-            <h3 style={{ marginBottom: "10px" }}>โต๊ะ {table}</h3>
+        {Object.entries(groupedOrders).map(([table, tableOrders]) => {
+  const tableTotal = tableOrders.reduce(
+    (sum, order) => sum + order.price,
+    0
+  )
 
-            {tableOrders.map((order, index) => (
-              <div key={index} style={rowStyle}>
-                <div>{order.menu}</div>
-                <div>฿{order.price}</div>
-                <div
-                  style={{
-                    color:
-                      order.status === "เสิร์ฟแล้ว"
-                        ? "#22c55e"
-                        : "#facc15"
-                  }}
-                >
-                  {order.status}
-                </div>
-              </div>
-            ))}
+  return (
+    <div key={table} style={tableCard}>
+      <h3 style={{ marginBottom: "10px" }}>
+        โต๊ะ {table}
+      </h3>
+
+      {tableOrders.map((order, index) => (
+        <div key={index} style={rowStyle}>
+          <div>{order.menu}</div>
+          <div>฿{order.price}</div>
+          <div
+            style={{
+              color:
+                order.status === "เสิร์ฟแล้ว"
+                  ? "#22c55e"
+                  : "#facc15"
+            }}
+          >
+            {order.status}
           </div>
-        ))}
+        </div>
+      ))}
+
+      {/* 💰 ยอดรวมโต๊ะ */}
+      <div style={totalStyle}>
+        รวมโต๊ะนี้: ฿{tableTotal}
       </div>
+    </div>
+  )
+})}
 
       <button style={floatingButton} onClick={addOrder}>
         +
