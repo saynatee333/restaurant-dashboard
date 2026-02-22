@@ -40,7 +40,6 @@ export default function Page() {
 
       <div style={tableWrapper}>
         <table style={tableStyle}>
-          <thead>
             <tr>
               <th>โต๊ะ</th>
               <th>เมนู</th>
