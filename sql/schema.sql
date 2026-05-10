@@ -1,0 +1,8 @@
+-- Restaurant POS — database schema (canonical migrations live under /supabase)
+--
+-- Apply in Supabase SQL Editor in this order:
+--   1. supabase/phase1_pos_schema_compat.sql   — tables, orders extensions, menu_items
+--   2. supabase/phase1_1_workflow.sql           — order / kitchen workflow RPCs
+--   3. supabase/phase1_2_operations.sql         — merge tables, payments, reporting
+--
+-- This file is a manifest so `/sql` matches the requested layout; run the files above for DDL.

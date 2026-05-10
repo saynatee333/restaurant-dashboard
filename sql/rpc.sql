@@ -1,0 +1,11 @@
+-- Restaurant POS — RPC entrypoints
+--
+-- UUID production stack (recommended for new projects):
+--   1. sql/production_pos_schema.sql
+--   2. sql/pos_rpc_functions.sql
+--      → pos_create_order, pos_add_item, pos_submit_order,
+--        pos_merge_tables, pos_split_table, pos_payment_callback, pos_daily_summary
+--
+-- Legacy bigint stack (existing installs):
+--   supabase/phase1_1_workflow.sql
+--   supabase/phase1_2_operations.sql
